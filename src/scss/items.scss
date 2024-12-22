@@ -1,0 +1,107 @@
+.block_search {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  &>input{
+    align-self: center;
+    margin-top: 4px;
+  }
+}
+.input_block {
+
+
+   display: flex;
+   align-items: flex-start;
+   justify-content: flex-start;
+   gap: 15px;
+  .search {
+    width: 100%;
+    display: none;
+  
+    &:hover {
+      background-color: beige;
+      cursor: pointer;
+    }
+    &_active {
+      display: block;
+      overflow-y: scroll;
+      max-height: 200px;
+      & > p:hover {
+        background-color: beige;
+        cursor: pointer;
+      }
+      
+    }
+  }
+}
+
+.block_item {
+  display: flex;
+  gap: 7px;
+  border: 2px solid black;
+  flex-direction: row;
+  align-items: start;
+  width: 100%;
+    &>p{
+      .title{
+        font-weight: 500;
+      }
+      padding: 4px;
+      .titlel{
+        display: block;
+        font-weight: 500;
+      }
+    }
+    
+    
+    
+   &.Physiology{
+    background-color: aquamarine;
+   }
+
+   &.Peace{
+    background-color: rgb(112, 112, 204);
+
+   }
+   &.Physics{
+    background-color: violet;
+   }
+
+   &.Literature{
+    background-color: antiquewhite;
+   }
+
+   &.Economic{
+    background-color: cadetblue;
+   }
+
+   &.Chemistry{
+    background-color: brown;
+   }
+
+   &.block{
+    flex-direction: column;
+    flex: 1 0 30%;
+    max-width: 400px;
+   }
+   .sp_bl{
+    display: block;
+   }
+   .p_bl{
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+  
+   }
+}
+
+.container_input{
+  display: flex;
+  width: 100%;
+  gap: 20px;
+
+  justify-content: center;
+  
+}
+
+

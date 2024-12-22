@@ -1,0 +1,57 @@
+.tabs {
+    position: relative; /* Относительное позиционирование */
+   }
+   .tab, .tab-title {
+    display: inline-block; /* Выстраиваем по горизонтали */
+   }
+   .tab input[type="radio"] { display: none; }
+   .tab-title {
+    background: #ccc; /* Цвет фона */
+    padding: 5px 10px; /* Поля вокруг текста */
+    border: 1px solid #666; /* Параметры рамки */
+    border-bottom: none; /* Снизу линию убираем */
+   }
+   .tab-content {
+   
+    border: 1px solid #666; /* Параметры рамки */
+    padding: 10px; /* Поля вокруг текста */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+
+ 
+   }
+   .tab :checked + .tab-title {
+    position: relative; /* Относительное позиционирование */
+    background: #fff; /* Цвет фона */
+    top: 1px; /* Сдвигаем вниз */
+    z-index: 1; /* Отображаем поверх содержимого */
+   }
+
+   .error{
+    background-color: rgb(66, 130, 167);
+    padding: 20px;
+    color: rgb(145, 36, 36);
+   }
+
+
+   .card_block{
+    max-width: 45px;
+    display: flex;
+    gap: 4px;
+    &>img{
+        max-width: 100%;
+        cursor: pointer;
+        border: 1px solid black;
+        padding: 2px;
+        &_active{
+            background-color: rgb(64, 64, 151);
+        }
+    }
+   }
+
+   
+   
+ 
