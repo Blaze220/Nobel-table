@@ -4,7 +4,7 @@ import {
     createSlice,
   } from "@reduxjs/toolkit";
 import { fetchGetLaureates } from "./actionLaureat";
-import { ILauret, laureatesResult } from "../models/response/LaureatesResponse";
+import { ILauret } from "../models/response/LaureatesResponse";
 
 interface ILaureatesSlice {
   load: boolean;
@@ -27,7 +27,7 @@ const initialState: ILaureatesSlice = {
 
     },
     extraReducers(builder: ActionReducerMapBuilder<ILaureatesSlice>){
-        builder.addCase(fetchGetLaureates.fulfilled,(state:ILaureatesSlice,{payload}: PayloadAction<laureatesResult>)=>{
+        builder.addCase(fetchGetLaureates.fulfilled,(state:ILaureatesSlice,{payload}: PayloadAction<any>)=>{
           state.data = payload.laureates
           state.load = false
           state.error = ""

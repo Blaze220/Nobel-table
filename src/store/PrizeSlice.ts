@@ -7,7 +7,7 @@ import {
 import { fetchGetNobelPrizes } from "./actionPrize";
 import {
   NobelPrize,
-  nobelPrizesResult,
+
 } from "../models/response/NobelPrizeResponse";
 
 interface IPrizeSlice {
@@ -39,7 +39,7 @@ const prizeSlice = createSlice({
     builder
       .addCase(
         fetchGetNobelPrizes.fulfilled,
-        (state: IPrizeSlice, { payload }: PayloadAction<nobelPrizesResult>) => {
+        (state: IPrizeSlice, { payload }: PayloadAction<any>) => {
           state.prizes = payload.nobelPrizes;
           state.load = false;
           state.error = "";
