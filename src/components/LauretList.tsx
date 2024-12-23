@@ -30,7 +30,7 @@ const LauretList: FC = () => {
       })
       .filter((i) => {
         if (searchDate.trim().length !== 0) {
-          return i.birth.date.includes(searchDate);
+          return i.birth?.date?.includes(searchDate);
         } else {
           return true;
         }
@@ -44,19 +44,11 @@ const LauretList: FC = () => {
       <div className="container_input">
         <div className="input_block">
           <label htmlFor="">name</label>
-          <input
-            type="text"
-            value={searchName}
-            onChange={(e) => setSearchName(e.target.value)}
-          />
+          <input type="text" value={searchName} onChange={(e) => setSearchName(e.target.value)}/>
         </div>
         <div className="input_block">
           <label htmlFor="">date</label>
-          <input
-            type="text"
-            value={searchDate}
-            onChange={(e) => setSearchDate(e.target.value)}
-          />
+          <input type="text" value={searchDate} onChange={(e) => setSearchDate(e.target.value)}/>
         </div>
       </div>
 
@@ -73,15 +65,15 @@ const LauretList: FC = () => {
           })
           .filter((i) => {
             if (searchDate.trim().length !== 0) {
-              return i.birth.date.includes(searchDate);
+              return i.birth?.date?.includes(searchDate);
             } else {
               return true;
             }
           })
           .slice(page * 30 - 30, page * 30)
           .map((lauret) => <ItemLauret key={lauret.id} lauret={lauret} />)}
-      {load && <span className="loader"></span>}
-      <Paginathion setPage={setPage} pageValue={page} maxLimit={limit} />
+          {load && <span className="loader"></span>}
+          <Paginathion setPage={setPage} pageValue={page} maxLimit={limit} />
     </>
   );
 };

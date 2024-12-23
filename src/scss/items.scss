@@ -46,7 +46,20 @@
     gap: 5px;
     margin-bottom: 20px;
     overflow: scroll;
-    flex-direction: column
+    flex-direction: column;
+     -ms-overflow-style: none; 
+     overflow: -moz-scrollbars-none; 
+    &::-webkit-scrollbar { width: 0; }
+
+
+
+  }
+
+  .cross{
+    cursor: pointer;
+    &:hover{
+      text-shadow: 0px 0px 1px black;
+    }
   }
   & >.content{
     flex: 0 0 40%;

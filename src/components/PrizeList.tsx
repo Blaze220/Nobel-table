@@ -13,6 +13,7 @@ const PrizeList: FC = () => {
   const [search, setSearch] = useState<string>("");
   const [searchCat, setSearchCat] = useState<string>("");
   const [isSearchArray, setIsSearchArray] = useState<string[]>([]);
+  const [isSearchArrayCat, setIsSearchArrayCat] = useState<string[]>([]);
   const [page, setPage] = useState<number>(1);
   const dispatch = useAppDispatch();
 
@@ -40,8 +41,8 @@ const PrizeList: FC = () => {
           res.push(prize.categoryFullName.en);
       }
     });
-    console.log(res);
-    setIsSearchArray(res);
+   
+    setIsSearchArrayCat(res);
   };
 
 useEffect(()=>{
@@ -58,7 +59,14 @@ useEffect(()=>{
 },[search.length,searchCat.length])
 
 
-
+  const SearchDate=(date:string)=>{
+    setSearch(date)
+    setIsSearchArray([])
+  }
+  const SearchCat=(category:string)=>{
+    setIsSearchArrayCat([]);
+    setSearchCat(category);
+  }
   return (
     <>
     <div className="container_input">
@@ -70,10 +78,7 @@ useEffect(()=>{
             {search.trim().length !==0 && isSearchArray.map((i, index) => (
               <p
                 key={i + index}
-                onClick={() => {
-                  setIsSearchArray([]);
-                  setSearch(i);
-                }}
+                onClick={() => SearchDate(i)}
               >
                 {i}
               </p>
@@ -85,17 +90,12 @@ useEffect(()=>{
         <p>Name category</p>
         <div className="block_search">
           <input type="text" value={searchCat} onChange={(e) => {handleSearchCat(e)}}/>
-          <div className={ isSearchArray.length == 0  ? "search" : "search_active"}>
-            {searchCat.trim().length !==0 && isSearchArray.map((i, index) => (
+          <div className={ isSearchArrayCat.length == 0  ? "search" : "search_active"}>
+            {searchCat.trim().length !==0 && isSearchArrayCat.map((i, index) => (
               <p
                 key={i + index}
-                onClick={() => {
-                  setIsSearchArray([]);
-                  setSearchCat(i);
-                }}>
-
+                onClick={() =>SearchCat(i)}>
                 {i}
-
               </p>
             ))}
           </div>
@@ -115,10 +115,10 @@ useEffect(()=>{
           })
           .filter((prize) => prize.categoryFullName.en.includes(searchCat))
           .slice(page * 30 - 30, page * 30)
-          .map((prize) => <ItemPrize key={uuidv4()} prize={prize} />)
+          .map((prize) => <ItemPrize key={uuidv4()} prize={prize} SearchDate={SearchDate} SearchCat={SearchCat}/>)
       )}
       {load && <span className="loader"></span>}
-      <Paginathion setPage={setPage} pageValue={page} maxLimit={limit} />
+      <Paginathion setPage={setPage} pageValue={page} maxLimit={limit}  />
     </>
   );
 };
