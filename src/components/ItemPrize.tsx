@@ -13,10 +13,13 @@ const ItemPrize: FC<IItemPrize> = ({ prize }) => {
   return (
     <>
     {prize && <div className={`block_item ${prize.category.en} ${dispalay}`}>
+      <div className="content">
         <p><span  className="title">categoryFullName:</span>  {prize.categoryFullName.en}</p>
         <p><span className="title">dateAwarded:</span>  {prize.dateAwarded}</p>
         <p><span className="title">prizeAmount:</span>  {prize.prizeAmount} $</p>
-        <p>
+      </div>
+        
+        <p className="lauret">
         <span className="titlel"> laureate:</span>
           {prize.laureates?.map((lauret) => (
             <span key={lauret.id}>

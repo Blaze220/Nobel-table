@@ -42,18 +42,22 @@ const LauretList: FC = () => {
   return (
     <>
       <div className="container_input">
-        <label htmlFor="">name</label>
-        <input
-          type="text"
-          value={searchName}
-          onChange={(e) => setSearchName(e.target.value)}
-        />
-        <label htmlFor="">date</label>
-        <input
-          type="text"
-          value={searchDate}
-          onChange={(e) => setSearchDate(e.target.value)}
-        />
+        <div className="input_block">
+          <label htmlFor="">name</label>
+          <input
+            type="text"
+            value={searchName}
+            onChange={(e) => setSearchName(e.target.value)}
+          />
+        </div>
+        <div className="input_block">
+          <label htmlFor="">date</label>
+          <input
+            type="text"
+            value={searchDate}
+            onChange={(e) => setSearchDate(e.target.value)}
+          />
+        </div>
       </div>
 
       {laurets.length !== 0 &&

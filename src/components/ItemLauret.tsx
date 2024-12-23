@@ -13,20 +13,27 @@ const ItemLauret: FC<IItemLauret> = ({ lauret }) => {
       <div
         className={`block_item ${lauret.nobelPrizes[0].category.en} ${dispalay}`}
       >
-        <p><span className="title">Name: </span> {lauret.fullName?.en}</p>
-        <p><span className="title">city: </span> {lauret.birth?.place?.city?.en}</p>
-        <p><span className="title">country: </span>{lauret.birth?.place?.country?.en}</p>
-        <p><span className="title">gender: </span> {lauret.gender}</p>
-        <p><span className="title">birth: </span> {lauret.birth?.date}</p>
-        <p><span className="title">wikipedia: </span> <a href={lauret.wikipedia.english} target="_blank">{lauret.fullName?.en}</a> </p>
+        <div className="content">
+          <p><span className="title">Name: </span> {lauret.fullName?.en}</p>
+          <p><span className="title">city: </span> {lauret.birth?.place?.city?.en}</p>
+          <p><span className="title">country: </span>{lauret.birth?.place?.country?.en}</p>
+          <p><span className="title">gender: </span> {lauret.gender}</p>
+          <p><span className="title">birth: </span> {lauret.birth?.date}</p>
+          <p><span className="title">wikipedia: </span> <a href={lauret.wikipedia.english} target="_blank">{lauret.fullName?.en}</a> </p>
+        </div>
+      
 
         {lauret.nobelPrizes.map((prize) => (
           <p key={uuidv4()} className="p_bl">
             <span className="titlel">Prize</span>
+            <p className="lauret">
             <span className="titlel">category: {prize.category?.en}</span>
+            <span className="sp_bl"><span className="title">motivation:</span> {prize.motivation.en}</span>
             <span className="sp_bl"><span className="title">dateAwarded:</span> {prize.dateAwarded}</span>
             <span className="sp_bl"><span className="title">prizeAmount:</span> {prize.prizeAmount}</span>
-            <span className="sp_bl"><span className="title">motivation:</span> {prize.motivation.en}</span> 
+          
+            </p>
+            
           </p>
         ))}
       </div>

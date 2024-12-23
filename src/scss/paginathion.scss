@@ -35,3 +35,11 @@
 .active:hover{
     background-color: rgb(23, 72, 112);
 }
+
+
+@media (max-width:720px){
+    .page_block{
+        font-size: 16px;
+        padding: 5px 7px;
+    }
+}
